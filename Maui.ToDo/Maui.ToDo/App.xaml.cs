@@ -9,9 +9,8 @@ namespace Maui.ToDo
 	{
 		public App()
 		{
-			InitializeComponent();
-
-			MainPage = new MainPage();
-		}
-	}
+			InitializeComponent(); 
+			MainPage = new MainView();
+		} 
+    }
 }

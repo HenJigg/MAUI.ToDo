@@ -1,0 +1,64 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Maui.ToDo.ViewModels"
+             x:Class="Maui.ToDo.MainView"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel/>
+    </ContentPage.BindingContext> 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" >
+            <Image Source="logo.png" 
+               WidthRequest="40"
+               Margin="10"
+               HeightRequest="40"/>
+            <Label Text="Hi,Henjigg!"  VerticalOptions="Center"/>
+        </StackLayout>
+
+        <Label Text="&#xe638;" FontFamily="iconfont" 
+                FontSize="30"   Margin="10" 
+                HorizontalOptions="End"/>
+
+        <CollectionView    
+            x:Name="CollectionMenuView"
+            GridLayout.Row="1"   
+            SelectionMode="Multiple"  ItemsSource="{Binding NavigationMenus}" 
+            SelectionChangedCommand="{Binding ExecuteCommand}"
+            SelectionChangedCommandParameter="{Binding SelectedItem,Source={x:Reference CollectionMenuView}}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="40" 
+                          Margin="15,10,0,0" 
+                          VerticalOptions="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Icon}" FontFamily="iconfont"
+                                   FontSize="28"  
+                                   VerticalOptions="Center"  
+                                   TextColor="{Binding BackColor}" />
+                            <Label Text="{Binding Title}"
+                                   TextColor="#363636"
+                                   VerticalOptions="Center"
+                                   Margin="5,0"   />
+                        </StackLayout>
+
+                        <Label Grid.Column="1" 
+                               VerticalOptions="Center"
+                               Text="{Binding Count}" 
+                               TextColor="#363636"
+                               HorizontalOptions="EndAndExpand" 
+                               Margin="0,0,15,0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
