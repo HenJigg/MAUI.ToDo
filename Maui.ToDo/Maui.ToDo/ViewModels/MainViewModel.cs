@@ -7,25 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Mvvm;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Input; 
 
 namespace Maui.ToDo.ViewModels
 {
-    public class MainViewModel : ObservableObject
+    public class MainViewModel :  ObservableObject
     {
-        public RelayCommand<NavigationMenuItem> ExecuteCommand { get; private set; }
-
         public MainViewModel()
         {
-            InitNavigaionMenu();
-            ExecuteCommand = new RelayCommand<NavigationMenuItem>(Execute);
+            InitNavigaionMenu(); 
         }
-
-        void Execute(NavigationMenuItem arg)
-        {
-
-        }
-
+          
         #region Navigation
 
         private ObservableCollection<NavigationMenuItem> navigationMenus;
@@ -46,7 +38,7 @@ namespace Maui.ToDo.ViewModels
             NavigationMenus.Add(new NavigationMenuItem() { Icon = "\xe614", Title = "已分配给我", BackColor = "#EE3B3B", });
             NavigationMenus.Add(new NavigationMenuItem() { Icon = "\xe755", Title = "任务", BackColor = "#218868", });
         }
-
-        #endregion 
+         
+        #endregion
     }
 }

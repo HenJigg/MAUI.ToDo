@@ -54,9 +54,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\" />
 	  <Folder Include="Extensions\" />
 	  <Folder Include="Converters\" />
+	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -67,6 +67,10 @@
 	  <Compile Update="Views\MainView.xaml.cs">
 	    <DependentUpon>MainView.xaml</DependentUpon>
 	  </Compile>
+
+		<Compile Update="Views\ItemDetailView.xaml.cs">
+			<DependentUpon>ItemDetailView.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">

@@ -24,16 +24,15 @@
                 HorizontalOptions="End"/>
 
         <CollectionView    
-            x:Name="CollectionMenuView"
+            x:Name="CollectionMenuView" 
             GridLayout.Row="1"   
-            SelectionMode="Multiple"  ItemsSource="{Binding NavigationMenus}" 
-            SelectionChangedCommand="{Binding ExecuteCommand}"
-            SelectionChangedCommandParameter="{Binding SelectedItem,Source={x:Reference CollectionMenuView}}">
+            SelectionMode="Single"  ItemsSource="{Binding NavigationMenus}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid HeightRequest="40" 
                           Margin="15,10,0,0" 
-                          VerticalOptions="Center">
+                          VerticalOptions="Center"> 
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition/>
